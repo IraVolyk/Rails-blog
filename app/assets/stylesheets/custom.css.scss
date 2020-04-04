@@ -1,0 +1,24 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.all{
+	width: 650px;
+}
+
+.welcome{
+	text-align: center;
+}
+.article{
+	display: inline-block;
+	float: left;	
+}
+
+.block{
+	display: inline-block;
+	float: right;	
+	margin: 2px;
+}
+
+img{
+	width: 620px;
+}
