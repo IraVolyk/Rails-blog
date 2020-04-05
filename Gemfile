@@ -5,9 +5,12 @@ ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
-# Use sqlite3 as the database for Active Record
-#Remove gem 'sqlite3'
+
+# Remove gem 'sqlite3'
+# Use postgresql as the database for Active Record
 gem 'pg', '~> 1.2.3'
+# Use for secure passwords
+gem 'bcrypt','~> 3.1.13'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
