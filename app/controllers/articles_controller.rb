@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    if @article.destroy(article_params)
+    if @article.destroy
       redirect_to @article
     else
       render 'edit'

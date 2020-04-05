@@ -1,17 +1,10 @@
 
-<div class="col-md-12 all">
 <header>
-	<!--authorized users only-->
-	<br>
-	<%= link_to 'Articles', {controller: 'articles'}, class: "btn btn-default article" %>	
-	<!--to change controllers-->
-	<%= link_to 'Log in', '#', class: "btn btn-default block" %>	
-	<%= link_to 'Sign up', new_user_path, class: "btn btn-default block" %>
-
+	<%= render 'layouts/header' %>
 </header>
 <br>
 <br>
-<h1 class ="welcome">Welcome to the Food blog!</h1>
+<h1 class ="title">Welcome to the Food blog!</h1>
 
 <img alt="Food" src="/assets/welcome_food.jpg"/>	
-</div>
+
