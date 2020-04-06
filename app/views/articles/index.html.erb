@@ -1,3 +1,10 @@
+<header>
+  <%= render 'layouts/header' %>
+</header>
+<br>
+<br>
+<br>
+
 <h1>Listing Articles</h1>
  
 <%= link_to 'New article', new_article_path %>
@@ -10,7 +17,6 @@
     <%= form.submit "search", :name => "" %>
   </p> 
 <% end %>
-
 
 
 <table>
@@ -33,5 +39,3 @@
     </tr>
   <% end %>
 </table>
-
-<%= link_to 'Home', controller: "welcome" %>

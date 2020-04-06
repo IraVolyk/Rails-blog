@@ -1,5 +1,12 @@
+<header>
+  <%= render 'layouts/header' %>
+</header>
+<br>
+<br>
+<br>
+
 <% provide(:title, 'Change your profile') %>
-<h1 class="welcome">Change your profile</h1>
+<h1 class="title">Change your profile</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -20,5 +27,11 @@
       <br>
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
+
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank">change</a>
+    </div>
+    
   </div>
 </div>
