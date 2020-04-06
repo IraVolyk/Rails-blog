@@ -11,7 +11,7 @@ gem 'pg', '~> 1.2.3'
 # Use for secure passwords
 gem 'bcrypt','~> 3.1.13'
 #Bootstrap
-gem 'bootstrap-sass', '~> 3.2.0.4'
+gem 'bootstrap-sass', '~> 3.4.1'
 #jquery 
 gem 'jquery-rails', '~> 4.3.5'
 # For fake users creation 
