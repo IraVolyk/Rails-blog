@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   has_many :articles
-  has_many :comments 
+  has_many :comments, :through => :articles 
 
   attr_accessor :remember_token
 	before_save { email.downcase! }

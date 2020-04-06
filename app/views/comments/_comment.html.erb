@@ -1,19 +1,11 @@
-<header>
-	<%= render 'layouts/header' %>
-</header>
-<br>
-<br>
-<br>
 
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
- 
-<p>
-  <strong>Comment:</strong>
+  <%= link_to comment.user.name, comment.user %>
+  <%= gravatar_for comment.user, size: 15 %>
+  <br>
+  <strong>Commented:</strong>
   <%= comment.body %>
-</p>
+  <br>
+<%= comment.created_at.to_s(:short) %>
 
 <p>
   <%= link_to 'Destroy Comment', [comment.article, comment],

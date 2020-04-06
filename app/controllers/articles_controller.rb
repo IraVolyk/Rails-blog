@@ -1,7 +1,5 @@
 class ArticlesController < ApplicationController
-	http_basic_authenticate_with name: "dhh", password: "secret", 
-  except: [:index, :show]
-
+	
   def index
     if params.has_key? :search
       @search = params[:search]
@@ -25,6 +23,7 @@ class ArticlesController < ApplicationController
 
 	def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
     if @article.save
       redirect_to @article
     else
