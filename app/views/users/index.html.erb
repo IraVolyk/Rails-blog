@@ -1,0 +1,17 @@
+<header>
+  <%= render 'layouts/header' %>
+</header>
+<br>
+<br>
+<br>
+
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+    <%= render @users %>
+</ul> 
+
+<%= will_paginate %>

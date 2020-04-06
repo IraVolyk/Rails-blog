@@ -1,8 +1,23 @@
-<p>
-  <strong>Title:</strong>
+<header>
+	<%= render 'layouts/header' %>
+</header>
+<br>
+<br>
+<br>
+
+<h3>
+  <strong >Title:</strong>
   <%= @article.title %>
+</h3>
+
+<p>
+  <strong>Author:</strong>
+  <%= link_to @article.user.name, @article.user %>
+  <%= gravatar_for @article.user, size: 20 %>
 </p>
- 
+
+<%= @article.created_at.to_s(:short) %>
+
 <p>
   <strong>Text:</strong>
   <%= @article.text %>

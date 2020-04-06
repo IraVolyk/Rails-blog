@@ -1,6 +1,24 @@
+<header>
+  <%= render 'layouts/header' %>
+</header>
+<br>
+<br>
+<br>
+
 <h1>Listing Articles</h1>
  
 <%= link_to 'New article', new_article_path %>
+
+<%= form_with(url: articles_path, method: "get", local: true) do |form| %>
+  <p>
+    <%= form.label :search %>
+    <br>
+    <%= form.text_field :search, :value => @search %>
+    <%= form.submit "search", :name => "" %>
+  </p> 
+<% end %>
+
+
 <table>
   <tr>
     <th>Title</th>
@@ -10,6 +28,7 @@
  
   <% @articles.each do |article| %>
     <tr>
+      <td><%= article.created_at.to_s(:short) %></td>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
