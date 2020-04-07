@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  has_many :articles
+  has_many :articles, dependent: :destroy
   has_many :comments, :through => :articles 
 
   attr_accessor :remember_token
@@ -8,13 +8,15 @@ class User < ApplicationRecord
 
 	validates :name, length: { minimum: 3 }, uniqueness: true
 
-  #VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, length: { minimum: 5 }, 
-            #format: {with VALID_EMAIL}, 
+            # format: {with /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}, 
             uniqueness: { case_sensitive: false }
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+
+  has_attached_file :avatar, styles: { medium: "300x300>", thumbnail: "30x30>" }, default_url: "/system/users/avatars/default_avatar.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   #return digest of string
 	def User.digest(string)

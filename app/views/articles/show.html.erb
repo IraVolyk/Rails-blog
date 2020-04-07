@@ -13,7 +13,7 @@
 <p>
   <strong>Author:</strong>
   <%= link_to @article.user.name, @article.user %>
-  <%= gravatar_for @article.user, size: 20 %>
+  <%= image_tag @article.user.avatar.url(:thumbnail) %>
 </p>
 
 <%= @article.created_at.to_s(:short) %>

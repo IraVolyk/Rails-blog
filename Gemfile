@@ -20,6 +20,9 @@ gem 'faker', '~> 2.11.0'
 gem 'will_paginate', '~> 3.3.0'
 
 gem 'bootstrap-will_paginate', '~> 1.0.0' 
+# For avatars update
+gem "paperclip", "~> 6.0.0"
+gem 'aws-sdk-s3'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.12.4'
@@ -65,3 +68,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+group :development do
+
+end

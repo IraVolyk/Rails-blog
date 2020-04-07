@@ -1,6 +1,8 @@
 
   <%= link_to comment.user.name, comment.user %>
-  <%= gravatar_for comment.user, size: 15 %>
+
+ <%= image_tag comment.user.avatar.url(:thumbnail) %>	
+
   <br>
   <strong>Commented:</strong>
   <%= comment.body %>

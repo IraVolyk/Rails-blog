@@ -6,13 +6,11 @@
 <br>
 <%= @user.name %>, <%= @user.email %>
 
-<%= provide(:title, @user.name) %>
-<<div class="row">
+<div class="row">
   <aside class="col-md-5">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
+        <%= image_tag @user.avatar.url(:medium) %>
       </h1>
     </section>
   </aside>
