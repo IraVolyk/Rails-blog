@@ -5,10 +5,7 @@
 <br>
 <br>
 
-<h3>
-  <strong >Title:</strong>
-  <%= @article.title %>
-</h3>
+<h3><%= @article.title %></h3>
 <hr>
 <p>
   <strong>Author:</strong>
@@ -16,8 +13,8 @@
   <%= image_tag @article.user.avatar.url(:thumbnail) %>
 </p>
 
-<%= @article.created_at.to_s(:short) %>
-
+<p><%= @article.created_at.to_s(:short) %>
+</p>
 <p>
   <strong>Text:</strong>
   <%= @article.text %>
