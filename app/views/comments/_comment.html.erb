@@ -1,5 +1,5 @@
 
-  <%= link_to comment.user.name, comment.user %>
+ <%= link_to comment.user.name, comment.user %>
 
  <%= image_tag comment.user.avatar.url(:thumbnail) %>	
 
@@ -10,7 +10,9 @@
 <%= comment.created_at.to_s(:short) %>
 
 <p>
+	<% if current_user?(comment.user) %>
   <%= link_to 'Destroy Comment', [comment.article, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
+               <% end %>
 </p>

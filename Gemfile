@@ -20,6 +20,7 @@ gem 'faker', '~> 2.11.0'
 gem 'will_paginate', '~> 3.3.0'
 
 gem 'bootstrap-will_paginate', '~> 1.0.0' 
+
 # For avatars update
 gem "paperclip", "~> 6.0.0"
 gem 'aws-sdk-s3'

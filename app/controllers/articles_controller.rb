@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-	
+	before_action :correct_user, only:  [:edit, :update, :destroy]
+
   def index
     if params.has_key? :search
       @search = params[:search]
@@ -53,5 +54,12 @@ class ArticlesController < ApplicationController
   
     def article_params
       params.require(:article).permit(:title, :text)
+    end
+
+    def correct_user
+      if !current_user.admin?
+        @article = Article.find(params[:id])
+        redirect_to(root_url) unless current_user?(@user)
+      end
     end
 end
