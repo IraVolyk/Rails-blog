@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+/* welcome page */
+
+.title{
+	text-align: center;
+}
+.article{
+	display: inline-block;
+	float: left;	
+}
+
+
+div {
+	padding-left: 10px;
+}

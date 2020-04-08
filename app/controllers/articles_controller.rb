@@ -44,6 +44,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     if @article.destroy
+      flash[:success] = "Successfully deleted!"
       redirect_to @article
     else
       render 'edit'
@@ -59,7 +60,7 @@ class ArticlesController < ApplicationController
     def correct_user
       if !current_user.admin?
         @article = Article.find(params[:id])
-        redirect_to(root_url) unless current_user?(@user)
+        redirect_to(root_url) unless current_user?(@article.user)
       end
     end
 end

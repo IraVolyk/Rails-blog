@@ -1,7 +1,8 @@
-<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+<%= form_with(model: [@article, Comment.new], local: true) do |form| %>
 
   <p>
-    <%= form.label :body %><br>
+  	<%= hidden_field_tag "article_id", @article.id %>
+  
     <%= form.text_area :body %>
   </p>
   <p>
