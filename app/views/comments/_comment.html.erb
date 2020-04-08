@@ -15,16 +15,22 @@
 	               data: { confirm: 'Are you sure?' } %>
 	               <% end %>
 		</p>
-		<%= form_with(model: [comment, Comment.new], local: true) do |form| %>
-	  <p>
-	  	<%= hidden_field_tag "article_id", @article.id %>
-	  	<%= hidden_field_tag "comment_id", comment.id %>
-	    <%= form.text_area :body %>
-	  </p>
-	  <p>
-	    <%= form.submit %>
-	  </p>
-		<% end %>
+		<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#comment-<%= comment.id %>" aria-expanded="false" aria-controls="comment-<%= comment.id %>">
+		Reply
+		</button>
+
+		<div class="collapse" id="comment-<%= comment.id %>">
+			<%= form_with(model: [comment, Comment.new], local: true) do |form| %>
+		  	<p>
+		  	<%= hidden_field_tag "article_id", @article.id %>
+		  	<%= hidden_field_tag "comment_id", comment.id %>
+		    <%= form.text_area :body %>
+			 </p>
+			 <p>
+		    <%= form.submit %>
+		    </p>
+			<% end %>
+		</div>
 
 		<div class="col-4 col-md-offset-1">
 	    <% comment.comments.each do |comcom| %>

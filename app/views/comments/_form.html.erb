@@ -1,11 +1,16 @@
-<%= form_with(model: [@article, Comment.new], local: true) do |form| %>
+<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#article-reply" aria-expanded="false" aria-controls="article-reply">
+  Reply
+</button>
 
-  <p>
-  	<%= hidden_field_tag "article_id", @article.id %>
-  
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<div class="collapse" id="article-reply">
+  <%= form_with(model: [@article, Comment.new], local: true) do |form| %>
+
+    <p>
+      <%= hidden_field_tag "article_id", @article.id %>
+      <%= form.text_area :body %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+</div>
