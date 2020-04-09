@@ -1,9 +1,9 @@
 
 <% provide(:title, 'Change your profile') %>
-<h1 class="title">Change your profile</h1>
+<h1>Change your profile</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 offset-md-3">
     <%= form_for @user, url: @user, html: { multipart: true } do |f| %>
       <%= render 'users/error_messages' %>
 
@@ -20,7 +20,7 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       <br>
       <%= f.file_field :avatar, class: 'form-control' %>
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <%= f.submit "Save changes", :class => "btn btn-outline-dark" %>
     <% end %>
     
   </div>

@@ -1,10 +1,10 @@
 
 <% provide(:title, 'Sign up') %>
-<h1 class="title">Sign up</h1>
+<h1>Sign up</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for@user, url: users_path, html: { multipart: true } do |f| %>
+    <%= form_for @user, url: users_path, html: { multipart: true } do |f| %>
       <%= render 'users/error_messages' %>
 
       <%= f.label :name %>
@@ -19,9 +19,16 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       <br>
-      <%= f.file_field :avatar, class: 'form-control' %>
-      <%= f.submit "Create my account", class: "btn btn-primary"%>
 
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <%= f.file_field :avatar, class: 'custom-file-input', id: "inputAvatar" %>
+          <label class="custom-file-label" for="inputAvatar">Choose file</label>
+        </div>
+      </div>
+      
+
+      <%= f.submit "Create my account", :class => "btn btn-outline-dark"%>
     <% end %>
   </div>
 </div>

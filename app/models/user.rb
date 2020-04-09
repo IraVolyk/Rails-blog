@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumbnail: "30x30>" }, default_url: "/system/users/avatars/default_avatar.jpg"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", thumbnail: "30x30>" }, default_url: "/system/users/avatars/default_avatar.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   #return digest of string

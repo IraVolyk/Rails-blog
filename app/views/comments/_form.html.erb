@@ -1,4 +1,4 @@
-<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#article-reply" aria-expanded="false" aria-controls="article-reply">
+<button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#article-reply" aria-expanded="false" aria-controls="article-reply">
   Reply
 </button>
 
@@ -7,10 +7,10 @@
 
     <p>
       <%= hidden_field_tag "article_id", @article.id %>
-      <%= form.text_area :body %>
+      <%= form.text_area :body, :class => "form-control col-4" %>
     </p>
     <p>
-      <%= form.submit %>
+      <%= form.submit "Create", :class => "btn btn-outline-dark" %>
     </p>
   <% end %>
 </div>
