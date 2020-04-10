@@ -17,8 +17,12 @@
 	<%= link_to 'Edit', edit_article_path(@article) %> 
 	
 	<h4>Add a comment to Article:</h4>
-	<%= render 'comments/form' %>
 
+	<%= render 'comments/form' %>
 	<hr>
-	<%= render @article.comments %>
+
+	<%= will_paginate @comments%>
+	<%= render @comments %>
+	<%= will_paginate @comments%>
+
 </div>

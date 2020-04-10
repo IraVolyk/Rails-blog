@@ -2,16 +2,16 @@ class ArticlesController < ApplicationController
 	before_action :correct_user, only:  [:edit, :update, :destroy]
 
   def index
+    @articles = Article.includes(:user).paginate(page: params[:page], per_page: 10)
     if params.has_key? :search
       @search = params[:search]
-      @articles = Article.where("title like ?", "%#{@search}%")
-    else
-      @articles = Article.all
+      @articles = @articles.where("title like ?", "%#{@search}%")
     end
   end
 
 	def show
     @article = Article.find(params[:id])
+    @comments = @article.comments.includes(:comments, :user).paginate(page: params[:page], per_page: 3)
   end
 
 	def new
