@@ -15,7 +15,7 @@ gem 'faker', '~> 2.11.0'
 #For pagination of all users
 gem 'will_paginate', '~> 3.3.0'
 
-gem 'bootstrap-will_paginate', '~> 1.0.0' 
+gem 'will_paginate-bootstrap4', '~> 0.2.2' 
 
 # For avatars update
 gem "paperclip", "~> 6.0.0"
