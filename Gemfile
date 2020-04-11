@@ -14,12 +14,10 @@ gem 'bcrypt','~> 3.1.13'
 gem 'faker', '~> 2.11.0'
 #For pagination of all users
 gem 'will_paginate', '~> 3.3.0'
-
 gem 'will_paginate-bootstrap4', '~> 0.2.2' 
 
-# For avatars update
-gem "paperclip", "~> 6.0.0"
-gem 'aws-sdk-s3'
+# For storage avatars
+gem 'aws-sdk-s3', require: false
 
 # Use Puma as the app server
 gem 'puma', '~> 3.12.4'
@@ -36,7 +34,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

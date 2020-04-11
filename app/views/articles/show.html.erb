@@ -4,7 +4,9 @@
 	<hr>
 	<p>
 	  <strong>Author:</strong>
-	  <%= image_tag @article.user.avatar.url(:thumbnail) %>
+	  <% unless @article.user.avatar.blank? %>
+      	<%= image_tag @article.user.avatar.variant(resize_to_limit: [70, 70])%>
+  	  <% end %>
 	  <%= link_to @article.user.name, @article.user %>
 	  
 	</p>

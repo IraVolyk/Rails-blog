@@ -1,8 +1,11 @@
 <div class="col-12">
  
  <div class="col-5">
-	 <%= image_tag comment.user.avatar.url(:thumbnail) %>	
-	 <%= link_to comment.user.name, comment.user %>
+
+	  <% unless comment.user.avatar.blank? %>
+       <%= image_tag comment.user.avatar.variant(resize_to_limit: [70, 70])%>
+  	  <% end %>	
+	  <%= link_to comment.user.name, comment.user %>
 	  <br>
 	  <strong>Commented:</strong>
 	  <%= comment.body %>
@@ -34,7 +37,9 @@
 
 		<div class="col-6 offset-md-2">
 	    <% comment.comments.each do |comcom| %>
-			<%= image_tag comcom.user.avatar.url(:thumbnail) %>
+	    	<% unless comcom.user.avatar.blank? %>
+					<%= image_tag comcom.user.avatar.variant(resize_to_limit: [70, 70]) %>
+				<% end %>
 			<%= link_to comcom.user.name, comcom.user %>	
 		  <br>
 		  <strong>Commented:</strong>

@@ -19,7 +19,12 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       <br>
-      <%= f.file_field :avatar, class: 'form-control' %>
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <%= f.file_field :avatar, class: "custom-file-input", id: "inputAvatar" %>
+          <label class="custom-file-label" for="inputAvatar">Choose file</label>
+        </div>
+      </div>
       <%= f.submit "Save changes", :class => "btn btn-outline-dark" %>
     <% end %>
     

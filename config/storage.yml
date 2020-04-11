@@ -32,3 +32,9 @@ local:
 #   service: Mirror
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
+amazon:
+  service: S3
+  access_key_id: 'AKIAIPW2XYJFVDWNCZFA'
+  secret_access_key: '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'
+  bucket: 'rubybucket333'
+  region: 'eu-central-1'
