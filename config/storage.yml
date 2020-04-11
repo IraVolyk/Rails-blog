@@ -1,7 +1,6 @@
 test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
-  dsafsad
 
 local:
   service: Disk
@@ -35,7 +34,7 @@ local:
 #   mirrors: [ amazon, google, microsoft ]
 amazon:
   service: S3
-  access_key_id: '<%= ENV['ACCESS_KEY_ID'] %>'
-  secret_access_key: '<%= ENV['SECRET_ACCESS_KEY'] %>'
+  access_key_id: <%= ENV['ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['SECRET_ACCESS_KEY'] %>
   bucket: 'rubybucket333'
   region: 'eu-central-1'
