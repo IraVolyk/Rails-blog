@@ -12,11 +12,11 @@ gem 'bcrypt','~> 3.1.13'
 
 # For fake users creation 
 gem 'faker', '~> 2.11.0'
-#For pagination of all users
+#For pagination 
 gem 'will_paginate', '~> 3.3.0'
 gem 'will_paginate-bootstrap4', '~> 0.2.2' 
 
-# For storage avatars
+# For storage avatars at amazon
 gem 'aws-sdk-s3', require: false
 
 # Use Puma as the app server

@@ -51,16 +51,16 @@ class ArticlesController < ApplicationController
     end
   end
 
-  private
+private
   
-    def article_params
-      params.require(:article).permit(:title, :text)
-    end
+  def article_params
+    params.require(:article).permit(:title, :text)
+  end
 
-    def correct_user
-      if !current_user.admin?
-        @article = Article.find(params[:id])
-        redirect_to(root_url) unless current_user?(@article.user)
-      end
+  def correct_user
+    if !current_user.admin?
+      @article = Article.find(params[:id])
+      redirect_to(root_url) unless current_user?(@article.user)
     end
+  end
 end
