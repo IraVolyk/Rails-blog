@@ -61,6 +61,8 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "blog_production"
 
 
+  #MailGun
+  config.action_mailer.raise_delivery_errors = true
   host = 'https://shrouded-woodland-94222.herokuapp.com/'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
@@ -68,10 +70,11 @@ Rails.application.configure do
   :address        => ENV['MAILGUN_SMTP_SERVER'],
   :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
   :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-  :domain         => 'yourapp.heroku.com',
+  :domain         => 'https://shrouded-woodland-94222.herokuapp.com/',
   :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
