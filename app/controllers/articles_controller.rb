@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :find_article!, only: [:show, :edit,:update, :destroy]
 	before_action :correct_user, only:  [:edit, :update, :destroy]
 
   def index
@@ -10,7 +11,6 @@ class ArticlesController < ApplicationController
   end
 
 	def show
-    @article = Article.find(params[:id])
     @comments = @article.comments.includes(:comments, :user).paginate(page: params[:page], per_page: 3)
   end
 
@@ -19,7 +19,6 @@ class ArticlesController < ApplicationController
 	end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
 	def create
@@ -33,7 +32,7 @@ class ArticlesController < ApplicationController
   end
   
   def update
-    @article = Article.find(params[:id])
+    flash[:success] = "Successfully updated!"
     if @article.update(article_params)
       redirect_to @article
     else
@@ -42,17 +41,20 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     if @article.destroy
       flash[:success] = "Successfully deleted!"
       redirect_to @article
     else
-      render 'edit'
+      flash[:error] = "Something went wrong, the acticle wasn't deleted"
     end
   end
 
 private
   
+  def find_article!
+    @article = Article.find(params[:id])
+  end
+
   def article_params
     params.require(:article).permit(:title, :text)
   end
