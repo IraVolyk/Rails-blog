@@ -1,24 +1,43 @@
 class CommentsController < ApplicationController
-  before_action :find_article!, only: [:create, :destroy]
+  before_action :find_article, only: [:index, :create, :destroy]
   before_action :correct_user, only:  [:destroy]
   before_action :find_commentable
+
+  def new
+  end
+
+  def index
+    respond_to do |format|
+      format.html do
+        redirect_to @article
+      end
+      format.js
+    end
+  end
 
   def create
     @comment = @commentable.comments.create(comment_params)
     @comment.user_id = current_user.id
     @comment.save
-    redirect_to article_path(@article)
+      respond_to do |format|
+        format.js do
+          @comments = @article.comments.includes(:comments, :user).paginate(page: params[:page], per_page: 3)
+        end   
+    end    
   end
   
   def destroy
     @comment = @commentable.comments.find(params[:id])
     @comment.destroy
-    redirect_to @article
+      respond_to do |format|
+        format.js
+        @comments = @article.comments.includes(:comments, :user).paginate(page: params[:page], per_page: 3)
+      end
   end
  
   private
 
-    def find_article!
+    def find_article
       @article = Article.find(params[:article_id])
     end
 

@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :find_article!, only: [:show, :edit,:update, :destroy]
+  before_action :find_article, only: [:show, :edit,:update, :destroy]
 	before_action :correct_user, only:  [:edit, :update, :destroy]
 
   def index
@@ -51,7 +51,7 @@ class ArticlesController < ApplicationController
 
   private
   
-    def find_article!
+    def find_article
       @article = Article.find(params[:id])
     end
 

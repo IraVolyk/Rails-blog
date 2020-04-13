@@ -23,9 +23,7 @@
 	<%= render 'comments/form' %>
 	<hr>
 
-		<%= will_paginate @comments, list_classes: %w(pagination pagination-sm) %>
-		<br>
-		<%= render @comments %>
-		<br>
-		<%= will_paginate @comments, list_classes: %w(pagination pagination-sm) %>
+	<div id="comments_block">
+		<%= render "comments/comments_block" %>
+	</div>
 </div>
