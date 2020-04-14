@@ -1,4 +1,4 @@
-<%= will_paginate @comments, :remote => true, list_classes: %w(pagination pagination-sm) %>
+<%= will_paginate @comments, list_classes: %w(pagination pagination-sm) %>
 
  <div class="col-6">
  	<!-- List of comments of Article-->
@@ -14,4 +14,4 @@
 	<% end %>
 </div>
 
-<%= will_paginate @comments, :remote => true,list_classes: %w(pagination pagination-sm) %>
+<%= will_paginate @comments, list_classes: %w(pagination pagination-sm) %>

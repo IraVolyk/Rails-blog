@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   end
 
 	def show
-    @comments = @article.comments.includes(:comments, :user).paginate(page: params[:page], per_page: 3)
+    @comments = @article.comments.includes(:comments, :user).paginate(page: params[:page], per_page: 5)
   end
 
 	def new

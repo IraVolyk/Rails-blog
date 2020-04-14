@@ -12,7 +12,7 @@ class User < ApplicationRecord
 	validates :name, length: { minimum: 3 }, uniqueness: true
   validates :email, length: { minimum: 5 },  
             uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }
 
   #return digest of string (token) to be available to save it to db
   def User.digest(string)

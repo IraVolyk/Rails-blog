@@ -17,6 +17,7 @@
     </header> 
     <br>
     <br>
+
     <div class="container">
     <% flash.each do |type, msg| %>
       <div class="alert alert-info">
@@ -24,6 +25,7 @@
       </div>
     <% end %>
       <%= yield %>
+
     </div>
   </body>
 </html>
