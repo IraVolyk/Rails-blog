@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   skip_before_action :logged_in_user, only: [:new, :create]
 
   def index
-  	@users = User.paginate(page: params[:page], per_page: 10)
+  	@users = User.paginate(page: params[:page], per_page: 5)
   end
 
 	def show

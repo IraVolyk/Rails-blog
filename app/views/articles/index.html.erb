@@ -6,8 +6,7 @@
 <br> 
 <br> 
 <%= form_with(url: articles_path, method: "get", local: true) do |form| %>
-  <p>
-    
+  <p> 
     <%= form.text_field :search, :class => "form-control col-4", :value => @search %>
     <br>
     <%= form.submit "Search", :class => "btn btn-outline-dark", :name => "" %>

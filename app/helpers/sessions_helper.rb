@@ -8,7 +8,7 @@ module SessionsHelper
   #Save user in session
   def remember(user)
     user.remember
-    cookies.permanent.signed[:user_id] = user.id
+    cookies.permanent.signed[:user_id] = user.id #permanently places encrypted user id in cookies 
     cookies.permanent[:remember_token] = user.remember_token
   end
 

@@ -1,5 +1,17 @@
-<%= will_paginate @comments, list_classes: %w(pagination pagination-sm) %>
-<br>
-<%= render @comments %>
-<br>
-<%= will_paginate @comments, list_classes: %w(pagination pagination-sm) %>
+<%= will_paginate @comments, :remote => true, list_classes: %w(pagination pagination-sm) %>
+
+ <div class="col-6">
+ 	<!-- List of comments of Article-->
+ 	<% @comments.each do |comment| %>
+ 		<%= render :partial => 'comments/comment', :locals => {:comment => comment} %>
+		<%= render :partial => 'comments/comment_comment_form', :locals => {:comment => comment} %>
+		<!-- List of comments of Comment-->
+		<div class="col-6 offset-md-2">
+			<% comment.comments.each do |comcom| %>
+				<%= render :partial => 'comments/comment', :locals => {:comment => comcom} %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+
+<%= will_paginate @comments, :remote => true,list_classes: %w(pagination pagination-sm) %>

@@ -1,12 +1,9 @@
-
 <!-- Article comment creation form -->
 <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#article-reply" aria-expanded="false" aria-controls="article-reply">
   Reply
 </button>
-
 <div class="collapse" id="article-reply">
-  <%= form_with(model: [@article, Comment.new], remote: true) do |form| %>
-
+    <%= form_with(model: [@article, Comment.new], remote: true) do |form| %>
     <p>
       <%= hidden_field_tag "article_id", @article.id %>
       <%= form.text_area :body, :class => "form-control col-4" %>

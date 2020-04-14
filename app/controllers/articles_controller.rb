@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 	before_action :correct_user, only:  [:edit, :update, :destroy]
 
   def index
-    @articles = Article.includes(:user).paginate(page: params[:page], per_page: 10)
+    @articles = Article.includes(:user).paginate(page: params[:page], per_page: 5)
     if params.has_key? :search
       @search = params[:search]
       @articles = @articles.where("title like ?", "%#{@search}%")
@@ -61,7 +61,7 @@ class ArticlesController < ApplicationController
 
     def correct_user
       if !current_user.admin?
-        @article = Article.find(params[:id])
+        find_article
         redirect_to(root_url) unless current_user?(@article.user)
       end
     end

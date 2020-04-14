@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save { email.downcase! }
+  # create act digest before create user
   before_create :create_activation_digest
 
   has_many :articles, dependent: :destroy

@@ -7,20 +7,17 @@
 	  <% unless @article.user.avatar.blank? %>
       	<%= image_tag @article.user.avatar.variant(resize_to_limit: [70, 70])%>
   	  <% end %>
-	  <%= link_to @article.user.name, @article.user %>
-	  
+	  <%= link_to @article.user.name, @article.user %>  
 	</p>
-
 	<p><%= @article.created_at.to_s(:short) %></p>
 	<p>
 	  <strong>Text:</strong>
 	  <%= @article.text %>
 	</p>
-	<%= link_to 'Edit', edit_article_path(@article) %> 
-	
+	<%= link_to 'Edit', edit_article_path(@article) %> 	
 	<h4>Add a comment to Article:</h4>
 
-	<%= render 'comments/form' %>
+	<%= render 'comments/article_comment_form' %>
 	<hr>
 
 	<div id="comments_block">

@@ -1,67 +1,21 @@
-<div class="col-12">
- 
- <div class="col-5">
+<!-- Avatar, author, body, time  for comment, that we render-->
 
-<!-- Avatar, author, body, time  for One Article comment, that we render-->
-	  <% unless comment.user.avatar.blank? %>
-       <%= image_tag comment.user.avatar.variant(resize_to_limit: [70, 70])%>
-  	  <% end %>	
-	  <%= link_to comment.user.name, comment.user %>
-	  <br>
-	  <strong>Commented:</strong>
-	  <%= comment.body %>
-	  <br>
-		<%= comment.created_at.to_s(:short) %>
-		<p>
-		<% if current_user?(comment.user) %>
-	  <%= link_to 'Destroy Comment', [comment.commentable, comment],
-	               method: :delete,
-	               data: { confirm: 'Are you sure?' },
-	               'data-remote': 'true' %>
-	               <% end %>
-		</p>
-
-<!-- Comment comment creation form -->
-		<button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#comment-<%= comment.id %>" aria-expanded="false" aria-controls="comment-<%= comment.id %>">
-		Reply
-		</button>
-		<div class="collapse" id="comment-<%= comment.id %>">
-			<%= form_with(model: [comment, Comment.new], remote: true) do |form| %>
-		  	<p>
-			  	<%= hidden_field_tag "article_id", @article.id %>
-			  	<%= hidden_field_tag "comment_id", comment.id %>
-			    <%= form.text_area :body, :class => "form-control col-4" %>
-			 </p>
-			 <p>
-		    <%= form.submit "Create", :class => "btn btn-outline-dark" %>
-		    </p>
-			<% end %>
-		</div>
-
-<!-- List of comments of Comment-->
-		<div class="col-6 offset-md-2">
-	    <% comment.comments.each do |comcom| %>
-	    	<% unless comcom.user.avatar.blank? %>
-					<%= image_tag comcom.user.avatar.variant(resize_to_limit: [70, 70]) %>
-				<% end %>
-			<%= link_to comcom.user.name, comcom.user %>	
-		  <br>
-		  <strong>Commented:</strong>
-		  <%= comcom.body %>
-		  <br>
-			<%= comcom.created_at.to_s(:short) %>
-			<p>
-				<% if current_user?(comment.user) %>
-			  <%= link_to 'Destroy Comment', [comment.commentable, comment],
-			               method: :delete,
-			               data: { confirm: 'Are you sure?' },
-			               'data-remote': 'true' %>
-			  <% end %>
-			</p>
-			<br>
-			<br>
-			<% end %>
-		</div>
-
-	</div>
-</div>
+<% unless comment.user.avatar.blank? %>
+<%= image_tag comment.user.avatar.variant(resize_to_limit: [70, 70]) %>
+<% end %>
+<%= link_to comment.user.name, comment.user %>	
+<br>
+<strong>Commented:</strong>
+<%= comment.body %>
+<br>
+<%= comment.created_at.to_s(:short) %>
+<p>
+	<% if current_user?(comment.user) %>
+  <%= link_to 'Destroy Comment', [comment.commentable, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' },
+               'data-remote': 'true' %>
+  <% end %>
+</p>
+<br>
+<br>
