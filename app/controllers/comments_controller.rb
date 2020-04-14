@@ -7,12 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def index
-    respond_to do |format|
-      format.html do
-        redirect_to @article
-      end
-      format.js
-    end
+    redirect_to @article
   end
 
   def create
