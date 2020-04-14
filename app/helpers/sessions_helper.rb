@@ -1,4 +1,5 @@
 module SessionsHelper
+  
 	#places temporary cookies in the user's browser with an encrypted version of the user id
   def log_in(user)
   	session[:user_id] = user.id 
